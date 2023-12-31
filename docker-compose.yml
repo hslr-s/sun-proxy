@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+    sun-proxy:
+        image: 'hslr/sun-proxy:latest'
+        container_name: sun-proxy
+        volumes:
+            - ./sun-proxy.yml:/app/sun-proxy.yml
+            - ./cert:/app/cert
+        ports:
+            - 8080:8080 # http
+            - 8081:8081 # https
+        restart: always
+        command: ['./sun-proxy', '-c', './sun-proxy.yml']

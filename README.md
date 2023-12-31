@@ -1,7 +1,9 @@
 # Sun-Proxy
-一个简单的反向代理程序, 为 [sun-panel](https://github.com/hslr-s/sun-panel)插件打造
+一个简单的反向代理程序, 为 [sun-panel](https://github.com/hslr-s/sun-panel) 插件打造
 
-### TODO
+DockerHub地址：https://hub.docker.com/r/hslr/sun-proxy
+
+## TODO
 
 - [x] 自动填入目标站的basic信息
 - [x] 给代理站增加basic验证
@@ -14,7 +16,7 @@
 - [ ] 网址内容替换
 
 
-### 目前已经实现4种模式：
+## 目前已经实现4种模式：
 
 域名 => 域名
 calendar.cn:8080 =>      http://192.168.3.100
@@ -29,7 +31,7 @@ calendar.cn:8080 =>      http://192.168.3.100
 127.0.0.1:8080/sun-panel-tool-page => http://localhost:1003/sun-panel-tool-page
 
 
-### 命令说明
+## 命令说明
 
 ```
   -c string
@@ -38,9 +40,15 @@ calendar.cn:8080 =>      http://192.168.3.100
         generate sample configuration file 生成示例配置文件
 ```
 
+执行示例：
 
-### 配置文件示例
+```sh
+./sun-proxy -c ./sun-proxy.yml
+```
 
+## 配置文件
+
+一个完整的示例 `./sun-proxy.yml`
 ```yml
 name: Sun-Proxy
 port:
@@ -67,7 +75,7 @@ rules:
         123456
 ```
 
-### docker 
+## docker 运行
 
 |参数|示例|说明|
 |---|---|---|
@@ -92,4 +100,15 @@ hslr/sun-proxy
 构建：
 ```
 docker build -t hslr/sun-proxy .
+```
+
+## docker compose运行
+查看[docker-compose.yml](docker-compose.yml)
+
+```sh
+# start
+./docker-compose up -d
+
+# close
+./docker-compose down
 ```
